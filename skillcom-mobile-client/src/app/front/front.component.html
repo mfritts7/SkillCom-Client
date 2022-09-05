@@ -1,0 +1,29 @@
+<body class="text-center">
+  <main class="form-signin">
+    <form>
+      <h3 class="fw-bold">Please sign in</h3>
+  
+      <div class="form-floating">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+        <label for="floatingInput">Email address</label>
+      </div>
+      
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="floatingPassword">Password</label>
+      </div>
+  
+      <div class="checkbox mb-3">
+        <label>
+          <input type="checkbox" value="remember-me"> Remember me
+        </label>
+      </div>
+
+      <button routerLink="/user"class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+      <button routerLink="/user/create"class="w-100 btn btn-lg btn-secondary" type="submit">Create Account</button>
+    </form>
+  </main>
+</body>
+
+<a routerLink="/user/create" class="btn btn-primary">Create account</a>
+<a routerLink="/user" class="btn btn-primary">Log in</a>

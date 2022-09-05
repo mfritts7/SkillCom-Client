@@ -1,0 +1,21 @@
+<div class="container" style= "text-align: center;" *ngIf="chosenPlan && chosenDevice">
+  <!-- <h1>Add Phone Number Below</h1>
+  <button (click)="(addPhoneNumber())" class="btn btn-secondary"> <br> {{ randomPhone()}}</button> -->
+  <button onclick="history.back()" class="btn btn-primary">Back</button>
+  <br>
+  <br>
+  <div style="text-align: center;" class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="card mb-4 rounded-3 shadow-sm" style ="background-color: #e3f2fd;text-align: center;">
+      <div style = "text-align: center;"class="card-header py-3">
+        <h1 class="my-0 fw-normal" style="text-align:center">{{ chosenPlan.planName }} Plan</h1>
+      </div>
+      <div class="card-body">
+        <ul style="text-align:center" class="list-unstyled mt-3 mb-4">
+          <li style="font-size: 200%">{{ chosenDevice.type }}</li>
+          <li style="font-size: 200%">${{ chosenPlan.monthlyPrice + chosenDevice.price/12 | number:'1.0-2'}}<small class="text-muted fw-light">/mo</small></li>
+        </ul>
+        <button routerLink="/user" (click)="(addContract(newContract))" class="w-100 btn btn-lg btn-success">Check out</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,69 @@
+<div class="container" style="text-align: center;" *ngIf="availablePlans">
+  <a style="margin-top: 0.5in; margin-left: 1.1in" onclick="history.back()" class="btn btn-primary">Back</a>
+  <a style="float:right; margin-top: 0.2in; margin-right: 1.1in" routerLink="" class="btn btn-danger">Log out</a>
+  <div style="margin-top: 0.2in; margin-left: 1in; margin-right: 1in" class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm" style ="background-color: #e3f2fd;">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Basic</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$20<small class="text-muted fw-light">/mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Terrible Service</li>
+            <li>100GB Talk/Text</li>
+            <li>Limited Coverage</li>
+            <li>4 Devices Allowed</li>
+          </ul>
+          <div *ngIf="!hasPlanType(1); else notShow">
+            <button type="button" routerLink="/device" (click)="(addPlan(availablePlans[0]))" class="w-100 btn btn-lg btn-primary">Select</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm"style ="background-color: #e3f2fd;">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Advanced</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$40<small class="text-muted fw-light">/mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li></li>
+            <li>Decent Service</li>
+            <li>500GB Talk/Text</li>
+            <li>Unlimited Coverage</li>
+            <li>4 Devices Allowed</li>
+          </ul>
+          <div *ngIf="!hasPlanType(2); else notShow">
+            <button type="button" routerLink="/device" (click)="(addPlan(availablePlans[1]))" class="w-100 btn btn-lg btn-primary">Select</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm" style ="background-color: #e3f2fd;">
+        <div class="card-header py-3">
+          <h4 class="my-0 fw-normal">Premium</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$80<small class="text-muted fw-light">/mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Best Service</li>
+            <li>Unlimited Talk/Text</li>
+            <li>Unlimited Coverage</li>
+            <li>4 Devices Allowed</li> 
+          </ul>
+          <div *ngIf="!hasPlanType(3); else notShow">
+            <button type="button" routerLink="/device" (click)="(addPlan(availablePlans[2]))" class="w-100 btn btn-lg btn-primary">Select</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #notShow>
+    <button type="button" class="w-100 btn btn-lg btn-secondary" disabled>Plan already added</button>
+  </ng-template>
+  
+</div>

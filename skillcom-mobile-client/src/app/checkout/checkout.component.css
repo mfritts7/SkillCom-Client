@@ -1,0 +1,18 @@
+p
+{
+  text-align:center;
+  font-size: 200%;
+}
+
+col
+{
+  width: 250px;
+  height: 900px;
+  margin: auto;
+  position: relative;
+}
+
+.container {
+  margin: auto;
+  width: 50%;
+}
