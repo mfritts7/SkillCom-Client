@@ -10,7 +10,6 @@ import { Plan } from 'src/app/plan/plan';
 import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
 import { MsalService } from '@azure/msal-angular';
-import { AccountInfo } from '@azure/msal-browser';
 
 @Component({
   selector: 'app-user-index',
@@ -53,7 +52,6 @@ export class UserIndexComponent implements OnInit {
       });
     });
   }
-
 
   retrieveUser(): Observable<User> {
     return this.userService.getUser();
@@ -108,11 +106,11 @@ export class UserIndexComponent implements OnInit {
     return count
   }
 
-  getName(): string{
-    return this.msalService.instance.getActiveAccount()?.name!
-  }
-  logout(){
-    this.msalService.logout();
+  getName(): string {
+    return this.msalService.instance.getActiveAccount()?.name!;
   }
 
+  logout() {
+    this.msalService.logout();
+  }
 }
