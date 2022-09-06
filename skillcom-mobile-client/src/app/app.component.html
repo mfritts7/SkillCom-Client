@@ -9,13 +9,19 @@
     </a> -->
   </nav>
 </div>
+
+<div *ngIf="!isLoggedIn()"> 
+
 <table>
   <tr>
-    <td><button (click)="login()" *ngIf="!isLoggedIn()"> SIGN IN  </button></td>
-    <td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
+    <td><button (click)="login()" routerLink="/user"> SIGN IN  </button></td>
   </tr>
   <div *ngIf="isLoggedIn()"> <h3>You Are Logged In </h3> </div>
   <div *ngIf="!isLoggedIn()"> <h3>You Are Not Logged In </h3> </div>
 
 </table>
+
+</div> 
+<td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
+
 <router-outlet></router-outlet>
