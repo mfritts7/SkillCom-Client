@@ -3,6 +3,8 @@
     <a href="#" class="navbar-brand">
       <h3 class="d-flex align-items-center">Login</h3>
     </a>
+    <button (click)="logout()" *ngIf="isLoggedIn()" class = "btn-secondary"> LOGOUT </button>
+    <button href="/user"> Go to User Page</button>
 
     <!-- <a>
       <h3 class="d-flex align-items-center">About</h3>
@@ -23,7 +25,7 @@
 
 </div> 
 <div *ngIf="isLoggedIn()">
-  <button routerLink="/user"> Go to User Page</button>
-<td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
+
+<td> </td>
 </div>
 <router-outlet></router-outlet>
