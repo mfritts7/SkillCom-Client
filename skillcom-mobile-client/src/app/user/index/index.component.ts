@@ -11,13 +11,6 @@ import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
 import { MsalService } from '@azure/msal-angular';
 
-const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
-type ProfileType = {
-  givenName?: string,
-  surname?: string,
-  userPrincipalName?: string,
-  id?: string
-}
 
 @Component({
   selector: 'app-user-index',
@@ -33,7 +26,6 @@ export class UserIndexComponent implements OnInit {
   advancedCount!: number;
   premiumCount!:number;
   bill!: number;
-  profile! : ProfileType;
 
   constructor(
     private userService: UserService,
@@ -45,7 +37,6 @@ export class UserIndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getProfile()
     this.retrieveUser().subscribe(u => {
       this.activeUser = u;
       this.retrievePlans().subscribe(p => {
@@ -121,12 +112,6 @@ export class UserIndexComponent implements OnInit {
     return this.msalService.instance.getActiveAccount()?.name!;
   }
 
-  getProfile() {
-    this.http.get(GRAPH_ENDPOINT)
-      .subscribe(profile => {
-        this.profile = profile;
-      });
-  }
 
   logout() {
     this.msalService.logout();
