@@ -45,6 +45,7 @@ export class UserIndexComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.getProfile()
     this.retrieveUser().subscribe(u => {
       this.activeUser = u;
       this.retrievePlans().subscribe(p => {
@@ -120,7 +121,6 @@ export class UserIndexComponent implements OnInit {
     return this.msalService.instance.getActiveAccount()?.name!;
   }
 
-<<<<<<< HEAD
   getProfile() {
     this.http.get(GRAPH_ENDPOINT)
       .subscribe(profile => {
@@ -128,9 +128,7 @@ export class UserIndexComponent implements OnInit {
       });
   }
 
-=======
   logout() {
     this.msalService.logout();
   }
->>>>>>> d4d0d431c8c206edaf8af78523091e55381f50f1
 }
