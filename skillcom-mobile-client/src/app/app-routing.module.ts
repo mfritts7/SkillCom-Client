@@ -6,9 +6,9 @@ import { FrontComponent } from './front/front.component';
 import { UserIndexComponent } from './user/index/index.component';
 
 const routes: Routes = [
- // { path: '', component: FrontComponent },
+  { path: '', component: UserIndexComponent },
   { path: 'checkout', component: CheckoutComponent },
-  {path: 'user',component: UserIndexComponent}
+  { path: 'user', component: UserIndexComponent }
 ];
 
 @NgModule({

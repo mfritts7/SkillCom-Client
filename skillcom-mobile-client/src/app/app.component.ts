@@ -32,10 +32,10 @@ ngOnInit():void{
 
 
   login(){
-         this.authService.loginRedirect();
-    // this.authService.loginPopup().subscribe((response: AuthenticationResult) => {
-    //   this.authService.instance.setActiveAccount(response.account);
-    //});
+        //  this.authService.loginRedirect();
+    this.authService.loginPopup().subscribe((response: AuthenticationResult) => {
+      this.authService.instance.setActiveAccount(response.account);
+    });
   }
   logout(){
     this.authService.logout();

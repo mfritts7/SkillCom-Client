@@ -10,6 +10,7 @@ import { Plan } from 'src/app/plan/plan';
 import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
 import { MsalService } from '@azure/msal-angular';
+import { AccountInfo } from '@azure/msal-browser';
 
 @Component({
   selector: 'app-user-index',
