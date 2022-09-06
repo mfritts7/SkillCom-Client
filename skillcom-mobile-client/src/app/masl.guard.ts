@@ -18,6 +18,4 @@ export class MaslGuard implements CanActivate {
     }
     return true
   }
-
-  
 }

@@ -12,16 +12,14 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { MsalModule, MsalService, MSAL_INSTANCE } from '@azure/msal-angular';
 import { IPublicClientApplication, PublicClientApplication } from '@azure/msal-browser';
 
-export function MSALInstanceFactory() : IPublicClientApplication{
+export function MSALInstanceFactory(): IPublicClientApplication {
   return new PublicClientApplication({
-    auth : {
-      clientId : '197a4d54-f089-4e0d-bab0-d7fd0d85e3d9',
-      redirectUri : 'https://gentle-plant-0ccaad410.1.azurestaticapps.net/'
-    
+    auth: {
+      clientId: '197a4d54-f089-4e0d-bab0-d7fd0d85e3d9',
+      redirectUri: 'https://gentle-plant-0ccaad410.1.azurestaticapps.net/'
     } 
-  })
+  });
 }
-
 
 @NgModule({
   declarations: [
@@ -40,9 +38,13 @@ export function MSALInstanceFactory() : IPublicClientApplication{
     BrowserModule,
     MsalModule
   ],
-  providers: [{provide : MSAL_INSTANCE,
-  useFactory: MSALInstanceFactory},
-  MsalService],
+  providers: [
+    {
+      provide : MSAL_INSTANCE,
+      useFactory: MSALInstanceFactory
+    },
+    MsalService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
