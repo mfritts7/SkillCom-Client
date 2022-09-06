@@ -1,21 +1,37 @@
-<div class="container" style= "text-align: center;" *ngIf="chosenPlan && chosenDevice">
-  <!-- <h1>Add Phone Number Below</h1>
-  <button (click)="(addPhoneNumber())" class="btn btn-secondary"> <br> {{ randomPhone()}}</button> -->
-  <button onclick="history.back()" class="btn btn-primary">Back</button>
-  <br>
-  <br>
-  <div style="text-align: center;" class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-    <div class="card mb-4 rounded-3 shadow-sm" style ="background-color: #e3f2fd;text-align: center;">
-      <div style = "text-align: center;"class="card-header py-3">
-        <h1 class="my-0 fw-normal" style="text-align:center">{{ chosenPlan.planName }} Plan</h1>
+<head>
+  <title>Payment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <section class="checkout dark">
+      <div class="container">
+        <div class="block-heading">
+          <h2>Checkout</h2>
+        </div>
+        <form>
+          <div class="products">
+            <h3 class="title">Your cart</h3>
+            <div class="item">
+              <span class="price">${{ chosenPlan.monthlyPrice }}<small class="text-muted fw-light">/mo</small></span>
+              <p class="item-name">{{ chosenPlan.planName }}</p>
+              <p class="item-description">Plan</p>
+            </div>
+            <div class="item">
+              <span class="price">${{ chosenDevice.price/12 | number:'1.0-2' }}<small class="text-muted fw-light">/mo</small></span>
+              <p class="item-name">{{ chosenDevice.type }}</p>
+              <p class="item-description">Phone</p>
+            </div>
+            <div class="total">Total<span class="price">${{ chosenPlan.monthlyPrice + (chosenDevice.price/12) | number:'1.0-2' }}<small class="text-muted fw-light">/mo</small></span></div>
+          </div>
+          <div class="button">
+            <div class="form-group col-sm-12">
+              <button type="button" routerLink="/user" (click)="(addContract(newContract))" class="btn btn-primary btn-block">Proceed</button>
+            </div>
+          </div>
+        </form>
       </div>
-      <div class="card-body">
-        <ul style="text-align:center" class="list-unstyled mt-3 mb-4">
-          <li style="font-size: 200%">{{ chosenDevice.type }}</li>
-          <li style="font-size: 200%">${{ chosenPlan.monthlyPrice + chosenDevice.price/12 | number:'1.0-2'}}<small class="text-muted fw-light">/mo</small></li>
-        </ul>
-        <button routerLink="/user" (click)="(addContract(newContract))" class="w-100 btn btn-lg btn-success">Check out</button>
-      </div>
-    </div>
-  </div>
-</div>
+    </section>
+  </main>
+</body>

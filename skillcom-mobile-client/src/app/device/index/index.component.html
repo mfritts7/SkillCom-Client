@@ -1,24 +1,38 @@
-<div class="container" *ngIf="chosenPlan && availableDevices">
-  <a style="float:right; margin-top: 0.2in; margin-right: 1.1in" routerLink="" class="btn btn-danger">Log out</a>
-  <div class="container">
-    <h1 *ngIf="chosenPlan">{{ chosenPlan.planName }} Plan - ${{ chosenPlan.monthlyPrice }}</h1>
-    <h3>Choose a device</h3>
-    <table  style="background-color: #e3f2fd;text-align:center;" class="table table-sm">
-      <thead class="table-dark">
-        <tr>
-          <th>Phone</th>
-          <th>Price</th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let device of availableDevices">
-          <td>{{ device.type }}</td>
-          <td>${{ device.price }}</td>
-          <td style="text-align: center"><a routerLink="/checkout" (click)="(addDevice(device))" class="btn btn-success">Add</a></td>
-        </tr>
-      </tbody>
-    </table>
-    <a onclick="history.back()" class="btn btn-primary">Back</a>
-  </div>
+<div *ngIf="availableDevices">
+  <header class="bg-dark py-5">
+    <div class="text-center text-white">
+      <h1 class="display-4 fw-bolder">Choose a device</h1>
+    </div>
+  </header>
+  <section class="py-5 bg-light">
+    <div class="container px-4 px-lg-5 mt-5">
+      <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+        <div *ngFor="let device of availableDevices; let i = index">
+          <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Product image-->
+              <img class="card-img-top" src="{{sourceImages[device.type]}}" alt="{{device.type}}" />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">{{ device.type }}</h5>
+                  <!-- Product price-->
+                  ${{ device.price }}
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center"><a routerLink="/checkout" (click)="addDevice(device)" class="btn btn-outline-dark mt-auto">Choose</a></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Footer-->
+  <footer class="py-5 bg-dark">
+    <div class="container"><p class="m-0 text-center text-white">Copyright &copy; SkillCom Mobile 2022</p></div>
+  </footer>
 </div>
