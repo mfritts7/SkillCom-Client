@@ -3,9 +3,19 @@
     <a href="#" class="navbar-brand">
       <h3 class="d-flex align-items-center">Login</h3>
     </a>
+
     <!-- <a>
       <h3 class="d-flex align-items-center">About</h3>
     </a> -->
   </nav>
 </div>
+<table>
+  <tr>
+    <td><button (click)="login()" *ngIf="!isLoggedIn()"> SIGN IN  </button></td>
+    <td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
+  </tr>
+  <div *ngIf="isLoggedIn()"> <h3>You Are Logged In </h3> </div>
+  <div *ngIf="!isLoggedIn()"> <h3>You Are Not Logged In </h3> </div>
+
+</table>
 <router-outlet></router-outlet>

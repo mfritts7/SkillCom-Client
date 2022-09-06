@@ -9,6 +9,7 @@ import { PlanService } from 'src/app/plan/plan.service';
 import { Plan } from 'src/app/plan/plan';
 import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
+import { MsalService } from '@azure/msal-angular';
 
 @Component({
   selector: 'app-user-index',
@@ -29,7 +30,8 @@ export class UserIndexComponent implements OnInit {
     private userService: UserService,
     private contractService: ContractService,
     private planService: PlanService,
-    private deviceService: DeviceService
+    private deviceService: DeviceService,
+    private msalService: MsalService
   ) { }
 
   ngOnInit() {
@@ -47,6 +49,7 @@ export class UserIndexComponent implements OnInit {
       });
     });
   }
+
 
   retrieveUser(): Observable<User> {
     return this.userService.getUser();
@@ -99,6 +102,13 @@ export class UserIndexComponent implements OnInit {
       }
    }
     return count
+  }
+
+  getName(): string{
+    return this.msalService.instance.getActiveAccount()?.name!
+  }
+  logout(){
+    this.msalService.logout();
   }
 
 }
