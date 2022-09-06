@@ -3,8 +3,11 @@
     <a href="#" class="navbar-brand">
       <h3 class="d-flex align-items-center">Login</h3>
     </a>
-    <button (click)="logout()" *ngIf="isLoggedIn()" class = "btn-secondary"> LOGOUT </button>
-    <button href="/user"> Go to User Page</button>
+    <a (click)="login()" *ngIf="!isLoggedIn()"> Sign In</a>
+    <a (click)="logout()" *ngIf="isLoggedIn()"> Logout </a>
+    <!-- <button (click)="logout()"  class = "btn-secondary"> LOGOUT </button> -->
+    <a href="/user">Go to User Page </a>
+    <!-- <button href="/user"> Go to User Page</button> -->
 
     <!-- <a>
       <h3 class="d-flex align-items-center">About</h3>
@@ -16,7 +19,7 @@
 
 <table>
   <tr>
-    <td><button (click)="login()"> SIGN IN  </button></td>
+    <!-- <td><button (click)="login()"> SIGN IN  </button></td> -->
   </tr>
 
 
@@ -24,8 +27,5 @@
 </table>
 
 </div> 
-<div *ngIf="isLoggedIn()">
 
-<td> </td>
-</div>
 <router-outlet></router-outlet>
