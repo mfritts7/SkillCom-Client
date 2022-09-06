@@ -21,9 +21,9 @@ export class UserIndexComponent implements OnInit {
   userContracts!: Contract[];
   availablePlans!: Plan[];
   availableDevices!: Device[];
-  basicCount: number = 0;
-  advancedCount: number = 0;
-  premiumCount:number = 0;
+  basicCount!: number;
+  advancedCount!: number;
+  premiumCount!:number;
   bill!: number;
 
   constructor(
@@ -44,6 +44,9 @@ export class UserIndexComponent implements OnInit {
           this.retrieveContracts(u.id).subscribe( c => {
             this.userContracts = c;
             this.bill = this.monthlyBill(c);
+            this.basicCount = this.addPlanCounts(1);
+            this.advancedCount = this.addPlanCounts(2);
+            this.premiumCount = this.addPlanCounts(3);
           });
         });
       });
