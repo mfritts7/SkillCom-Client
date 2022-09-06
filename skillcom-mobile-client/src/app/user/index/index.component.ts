@@ -10,7 +10,6 @@ import { Plan } from 'src/app/plan/plan';
 import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
 import { MsalService } from '@azure/msal-angular';
-import { AccountInfo } from '@azure/msal-browser';
 
 const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
 type ProfileType = {
@@ -63,7 +62,6 @@ export class UserIndexComponent implements OnInit {
       });
     });
   }
-
 
   retrieveUser(): Observable<User> {
     return this.userService.getUser();
@@ -118,13 +116,11 @@ export class UserIndexComponent implements OnInit {
     return count
   }
 
-  getName(): string{
-    return this.msalService.instance.getActiveAccount()?.name!
-  }
-  logout(){
-    this.msalService.logout();
+  getName(): string {
+    return this.msalService.instance.getActiveAccount()?.name!;
   }
 
+<<<<<<< HEAD
   getProfile() {
     this.http.get(GRAPH_ENDPOINT)
       .subscribe(profile => {
@@ -132,4 +128,9 @@ export class UserIndexComponent implements OnInit {
       });
   }
 
+=======
+  logout() {
+    this.msalService.logout();
+  }
+>>>>>>> d4d0d431c8c206edaf8af78523091e55381f50f1
 }
