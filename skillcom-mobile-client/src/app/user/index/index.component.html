@@ -1,7 +1,7 @@
 <div class="container" *ngIf="userContracts">
   <br>
   <a routerLink="" style="float:right" class="btn btn-danger">Log out</a>
-  <h5>Welcome, {{activeUser.name}}</h5>
+  <h5>Welcome, {{ activeUser.name }}</h5>
   <br>
   <h1 style = "text-align: center;float:right">  Monthly Bill- ${{bill | number:'1.0-2'}}</h1>
 
