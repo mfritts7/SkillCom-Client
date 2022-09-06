@@ -16,12 +16,13 @@
   <tr>
     <td><button (click)="login()"> SIGN IN  </button></td>
   </tr>
-  <div *ngIf="isLoggedIn()"> <h3>You Are Logged In </h3> </div>
-  <div *ngIf="!isLoggedIn()"> <h3>You Are Not Logged In </h3> </div>
+
+
 
 </table>
 
 </div> 
+<div *ngIf="isLoggedIn()">
 <td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
-
+</div>
 <router-outlet></router-outlet>
