@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-
+import { HttpClient } from '@angular/common/http';
 import { UserService } from '../user.service';
 import { User } from '../user';
 import { Contract } from 'src/app/contract/contract';
@@ -11,6 +11,14 @@ import { DeviceService } from 'src/app/device/device.service';
 import { Device } from 'src/app/device/device';
 import { MsalService } from '@azure/msal-angular';
 import { AccountInfo } from '@azure/msal-browser';
+
+const GRAPH_ENDPOINT = 'https://graph.microsoft.com/v1.0/me';
+type ProfileType = {
+  givenName?: string,
+  surname?: string,
+  userPrincipalName?: string,
+  id?: string
+}
 
 @Component({
   selector: 'app-user-index',
@@ -26,13 +34,15 @@ export class UserIndexComponent implements OnInit {
   advancedCount!: number;
   premiumCount!:number;
   bill!: number;
+  profile! : ProfileType;
 
   constructor(
     private userService: UserService,
     private contractService: ContractService,
     private planService: PlanService,
     private deviceService: DeviceService,
-    private msalService: MsalService
+    private msalService: MsalService,
+    private http : HttpClient
   ) { }
 
   ngOnInit() {
@@ -113,6 +123,13 @@ export class UserIndexComponent implements OnInit {
   }
   logout(){
     this.msalService.logout();
+  }
+
+  getProfile() {
+    this.http.get(GRAPH_ENDPOINT)
+      .subscribe(profile => {
+        this.profile = profile;
+      });
   }
 
 }

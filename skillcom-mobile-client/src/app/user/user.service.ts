@@ -5,10 +5,15 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from './user';
 import { Contract } from '../contract/contract';
+
+
+
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  
   private userUrl: string = `${environment.apiUrl}/Users`;
   private httpOptions = {
     headers: new HttpHeaders({
@@ -36,4 +41,5 @@ export class UserService {
       }
     return count
   }
+
 }
