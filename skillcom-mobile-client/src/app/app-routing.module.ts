@@ -7,7 +7,7 @@ import { UserIndexComponent } from './user/index/index.component';
 
 const routes: Routes = [
  // { path: '', component: FrontComponent },
-  { path: 'checkout', component: CheckoutComponent }
+  { path: 'checkout', component: CheckoutComponent },
   {path: 'user',component: UserIndexComponent}
 ];
 
