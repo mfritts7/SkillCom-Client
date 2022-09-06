@@ -5,29 +5,8 @@
     </a>
     <a (click)="login()" *ngIf="!isLoggedIn()" class="btn btn-primary"> Sign In</a>
     <a (click)="logout()" *ngIf="isLoggedIn()" class="btn btn-primary"> Logout </a>
-    <!-- <button (click)="logout()"  class = "btn-secondary"> LOGOUT </button> -->
     <a routerLink="/user" class="btn btn-primary">Go to user page</a>
-
-    <!-- <button href="/user"> Go to User Page</button> -->
-
-    <!-- <a>
-      <h3 class="d-flex align-items-center">About</h3>
-    </a> -->
   </nav>
 </div>
 
-<div *ngIf="!isLoggedIn()"> 
-
-<table>
-  <tr>
-    <!-- <td><button (click)="login()"> SIGN IN  </button></td> -->
-  </tr>
-
-
-
-</table>
-
 <router-outlet></router-outlet>
-
-
-</div> 
