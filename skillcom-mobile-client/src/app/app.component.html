@@ -5,8 +5,10 @@
     </a>
     <a (click)="login()" *ngIf="!isLoggedIn()" class="btn btn-primary"> Sign In</a>
     <a (click)="logout()" *ngIf="isLoggedIn()" class="btn btn-primary"> Logout </a>
-    <a routerLink="/user" class="btn btn-primary">Go to user page</a>
+    <a routerLink="/user" *ngIf="isLoggedIn()" class="btn btn-primary">Go to user page</a>
   </nav>
 </div>
-
+<div style = "text-align: center;background-color: #e3f2fd;">
+<h3 style = "text-align: center; font-family: Times New Roman;font-size: 400%;text-emphasis-color: blue;"> SkillCom Mobile </h3>
+</div>
 <router-outlet></router-outlet>
