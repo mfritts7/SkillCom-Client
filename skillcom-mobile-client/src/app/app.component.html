@@ -23,6 +23,7 @@
 
 </div> 
 <div *ngIf="isLoggedIn()">
+  <button routerLink="/User"> Go to User Page</button>
 <td><button (click)="logout()" *ngIf="isLoggedIn()"> LOGOUT </button> </td>
 </div>
 <router-outlet></router-outlet>
