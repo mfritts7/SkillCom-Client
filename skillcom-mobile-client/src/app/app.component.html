@@ -1,11 +1,13 @@
 <div style="background-color: #e3f2fd;"class="container-fluid d-flex align-items-center">
   <nav class="navbar navbar-light" >
-    <a href="#" class="navbar-brand">
-      <h3 class="d-flex align-items-center">Login</h3>
-    </a>
     <a (click)="login()" *ngIf="!isLoggedIn()" class="btn btn-primary"> Sign In</a>
     <a (click)="logout()" *ngIf="isLoggedIn()" class="btn btn-primary"> Logout </a>
-    <a routerLink="/user" class="btn btn-primary">Go to user page</a>
+    <a routerLink="/user" *ngIf="isLoggedIn()" class="btn btn-primary">Go to user page</a>
+    <header class="py-5">
+      <div class="text-center text-black">
+        <h1 class="display-4 fw-bolder">SkillCom Mobile</h1>
+      </div>
+    </header>
   </nav>
 </div>
 
