@@ -3,10 +3,10 @@
     <a href="#" class="navbar-brand">
       <h3 class="d-flex align-items-center">Login</h3>
     </a>
-    <a (click)="login()" *ngIf="!isLoggedIn()"> Sign In</a>
-    <a (click)="logout()" *ngIf="isLoggedIn()"> Logout </a>
+    <a (click)="login()" *ngIf="!isLoggedIn()" class="btn btn-primary"> Sign In</a>
+    <a (click)="logout()" *ngIf="isLoggedIn()" class="btn btn-primary"> Logout </a>
     <!-- <button (click)="logout()"  class = "btn-secondary"> LOGOUT </button> -->
-    <a href="/user">Go to User Page </a>
+    <a routerLink="/user" class="btn btn-primary">Go to user page</a>
     <!-- <button href="/user"> Go to User Page</button> -->
 
     <!-- <a>
