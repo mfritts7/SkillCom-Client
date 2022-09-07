@@ -6,7 +6,7 @@ import { UserIndexComponent } from './user/index/index.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
-  // { path: '', component: FrontComponent },
+  { path: '', component: FrontComponent },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'user', component: UserIndexComponent }
 ];
